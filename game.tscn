@@ -1,0 +1,81 @@
+[gd_scene format=3 uid="uid://d2blkpxcmqe8i"]
+
+[ext_resource type="Script" uid="uid://ec5j6ib3es7u" path="res://game.gd" id="1_80nbo"]
+[ext_resource type="Texture2D" uid="uid://dh6vfxmol8aq3" path="res://icon.svg" id="2_e2o6t"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e2o6t"]
+size = Vector2(1438, 1080)
+
+[node name="Game" type="Node2D" unique_id=249011617]
+script = ExtResource("1_80nbo")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1105482133]
+position = Vector2(-1, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=895605953]
+position = Vector2(720, 540)
+shape = SubResource("RectangleShape2D_e2o6t")
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D/CollisionShape2D" unique_id=1298315772]
+position = Vector2(0, 1.5)
+scale = Vector2(11.1875, 8.4453125)
+texture = ExtResource("2_e2o6t")
+
+[node name="ClickCD" type="Timer" parent="." unique_id=1569755124]
+wait_time = 3.0
+one_shot = true
+
+[node name="Timer" type="Label" parent="." unique_id=1784681763]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="Score" type="Label" parent="." unique_id=639534019]
+offset_left = 1240.0
+offset_right = 1440.0
+offset_bottom = 80.0
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 50
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Shop" type="Node2D" parent="." unique_id=1402408454]
+
+[node name="ShopLabel" type="Label" parent="Shop" unique_id=1484952660]
+offset_left = 1440.0
+offset_right = 1920.0
+offset_bottom = 150.0
+theme_override_font_sizes/font_size = 100
+text = "SHOP"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="Shop" unique_id=1243840021]
+offset_left = 1440.0
+offset_top = 150.0
+offset_right = 1920.0
+offset_bottom = 1080.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Shop/CenterContainer" unique_id=1095098929]
+layout_mode = 2
+
+[node name="ThrowB" type="Button" parent="Shop/CenterContainer/VBoxContainer" unique_id=16287608]
+layout_mode = 2
+text = "MORE THROW"
+
+[node name="DogB" type="Button" parent="Shop/CenterContainer/VBoxContainer" unique_id=883053194]
+layout_mode = 2
+text = "MORE DOG"
+
+[node name="PointB" type="Button" parent="Shop/CenterContainer/VBoxContainer" unique_id=1607555845]
+layout_mode = 2
+text = "MORE POINT"
+
+[node name="LemonB" type="Button" parent="Shop/CenterContainer/VBoxContainer" unique_id=811462401]
+layout_mode = 2
+text = "LEMON"
+
+[connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]
+[connection signal="pressed" from="Shop/CenterContainer/VBoxContainer/ThrowB" to="." method="_on_throw_b_pressed"]
+[connection signal="pressed" from="Shop/CenterContainer/VBoxContainer/DogB" to="." method="_on_dog_b_pressed"]
+[connection signal="pressed" from="Shop/CenterContainer/VBoxContainer/PointB" to="." method="_on_point_b_pressed"]

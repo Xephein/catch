@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://bmuwovihtxcgg"]
+
+[ext_resource type="Script" uid="uid://wpuu0trsx8ut" path="res://main_menu.gd" id="1_06t4h"]
+
+[node name="MainMenu" type="Node2D" unique_id=1766502578]
+script = ExtResource("1_06t4h")
+
+[node name="Title" type="Label" parent="." unique_id=1818595109]
+offset_right = 1920.0
+offset_bottom = 500.0
+theme_override_font_sizes/font_size = 250
+text = "Catchphrase"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=1799775039]
+offset_top = 500.0
+offset_right = 1920.0
+offset_bottom = 1080.0
+
+[node name="Buttons" type="VBoxContainer" parent="CenterContainer" unique_id=1146583102]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="PlayB" type="Button" parent="CenterContainer/Buttons" unique_id=923453562]
+layout_mode = 2
+theme_override_font_sizes/font_size = 60
+text = "PLAY"
+
+[node name="SettingsB" type="Button" parent="CenterContainer/Buttons" unique_id=58306470]
+layout_mode = 2
+theme_override_font_sizes/font_size = 60
+text = "SETTINGS"
+
+[node name="QuitB" type="Button" parent="CenterContainer/Buttons" unique_id=1860620492]
+layout_mode = 2
+theme_override_font_sizes/font_size = 60
+text = "QUIT
+"
+
+[connection signal="pressed" from="CenterContainer/Buttons/PlayB" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="CenterContainer/Buttons/QuitB" to="." method="_on_quit_pressed"]
